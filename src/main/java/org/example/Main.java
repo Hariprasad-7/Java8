@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ public class Main {
 
         //printing list of names with method reference and forEach method
         names.stream().forEach(System.out::println);
-        
+
 
         List<Employe> emps = new ArrayList<>();
         emps.add(new Employe(6,"Hari",96016.0));
@@ -31,5 +32,9 @@ public class Main {
 
         emps.stream().filter(e-> e.getSalary()>100000.0)
                 .forEach(e-> System.out.println(e.getName()+" have the highest salary of "+e.getSalary()));
+
+        //Sort the Employees by ID
+
+        emps.stream().sorted(Comparator.comparingInt(Employe::getId)).forEach(e-> System.out.println(e));
     }
 }
