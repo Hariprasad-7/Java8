@@ -36,5 +36,10 @@ public class Main {
         //Sort the Employees by ID
 
         emps.stream().sorted(Comparator.comparingInt(Employe::getId)).forEach(e-> System.out.println(e));
+
+        //get employess starting char with name 's'
+        System.out.println("=========Employess with name start with S===========");
+
+        emps.stream().filter(e-> e.getName().startsWith("s")).forEach(System.out::println);
     }
 }
